@@ -1,0 +1,26 @@
+name: Punishments
+main: punishments.Punishments
+version: 1.0
+api-version: 1.21
+folia-supported: true
+commands:
+  штраф:
+    description: "Выдать усталость игроку."
+    usage: "/штраф [ник]"
+    permission: punishments.givefatigue
+    aliases: []
+  снять_штраф:
+    description: "Снять усталость с игрока."
+    usage: "/снять_штраф [ник]"
+    permission: punishments.forgive
+    aliases: []
+  punishmentsreload:
+    description: "Перезагрузить конфиг Punishments."
+    usage: "/punishmentsreload"
+    permission: punishments.reload
+    aliases: []
+  штрафы:
+    description: "Список всех оштрафованных игроков."
+    usage: "/штрафы"
+    permission: punishments.list
+    aliases: []

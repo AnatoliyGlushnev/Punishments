@@ -1,0 +1,20 @@
+# Информация о штрафах
+punished_players: []
+
+messages:
+  join_punished: |
+    §c[ШТРАФ] На вас наложен штраф!
+    §c[ШТРАФ] Причина:§f {reason}
+    §c[ШТРАФ] Для снятия штрафа обратитесь к судье.
+  effect_restored: "§c[ШТРАФ] Эффект усталости возвращён после входа!"
+  effect_restored_death: "§c[ШТРАФ] Эффект усталости возвращён после смерти!"
+  actionbar_reminder: "§cШтраф - обратитесь к судье"
+actionbar_interval_minutes: 15
+
+# звуковое уведомление
+sounds:
+  reminder:
+    type: "BLOCK_NOTE_BLOCK_BELL"
+    volume: 1.0
+    pitch: 0.5
+    repeat: false
