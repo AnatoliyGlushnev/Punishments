@@ -63,8 +63,8 @@ public class Punishments extends JavaPlugin {
                 }
             },
             () -> {},
-            2L,
-            2L
+            20L,
+            20L
         );
         // ActionBar-напоминание (настраивается через config.yml)
         long actionBarInterval = getActionBarIntervalTicks();
