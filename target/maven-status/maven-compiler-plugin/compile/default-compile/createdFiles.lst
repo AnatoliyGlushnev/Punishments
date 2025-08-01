@@ -1,6 +1,0 @@
-punishments\commands\ReloadCommand.class
-punishments\listeners\FatigueListener.class
-punishments\commands\ForgiveCommand.class
-punishments\commands\GiveFatigueCommand.class
-punishments\commands\ListPunishedCommand.class
-punishments\Punishments.class
