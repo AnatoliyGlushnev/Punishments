@@ -8,8 +8,13 @@ messages:
     §c[ШТРАФ] Для снятия штрафа обратитесь к судье.
   effect_restored: "§c[ШТРАФ] Эффект усталости возвращён после входа!"
   effect_restored_death: "§c[ШТРАФ] Эффект усталости возвращён после смерти!"
-  actionbar_reminder: "§cШтраф - обратитесь к судье"
-actionbar_interval_minutes: 15
+  actionbar_reminder: "§cУ вас штраф, обратитесь к судье"
+
+# Настройки ActionBar-напоминания о штрафе
+actionbar_reminder:
+  enabled: true
+  message: "§cУ вас штраф, обратитесь к судье"
+  interval_minutes: 30 # 30 минут отправки напоминания о штрафе
 
 # звуковое уведомление
 sounds:
@@ -18,3 +23,8 @@ sounds:
     volume: 1.0
     pitch: 0.5
     repeat: false
+
+fatigue:
+  interval_seconds: 10   # проверка таймера восстановления эффекта (секунд)
+  effect_level: 4        # Уровень эффекта усталости (0-4)
+peat: false

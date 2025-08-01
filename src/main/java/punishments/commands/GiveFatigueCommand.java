@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import punishments.Punishments;
-
+// /штрраф [ник] + [причина](в противном случае будет не указана причина) - выдача штрафа логично
 public class GiveFatigueCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,23 +19,17 @@ public class GiveFatigueCommand implements CommandExecutor {
         String playerName = args[0];
         String reason = args.length > 1 ? String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length)) : "Не указана";
         Player target = Bukkit.getPlayer(playerName);
+        punishments.managers.PunishmentManager pm = new punishments.managers.PunishmentManager();
         if (target != null) {
             target.addPotionEffect(new PotionEffect(PotionEffectType.getByName("MINING_FATIGUE"), Integer.MAX_VALUE, 4, false, false, true));
-            Punishments.addPunished(target);
-            Punishments.setPunishmentReason(target, reason);
-            target.sendMessage("§cВам выдан эффект усталости! Причина: " + reason);
+            pm.addPunished(target.getName());
+            pm.setPunishmentReason(target.getName(), reason);
+            target.sendMessage("§c[ШТРАФ] Вам выдан эффект усталости! Причина: " + reason);
             sender.sendMessage("§aШтраф выдан игроку " + target.getName() + ". Причина: " + reason);
-            Punishments.getInstance().startFatigueEnforcer(target);
             return true;
         } else {
-            // оффлайн-игрок
-            java.util.List<String> punished = Punishments.getInstance().getConfig().getStringList("punished_players");
-            if (!punished.contains(playerName)) {
-                punished.add(playerName);
-                Punishments.getInstance().getConfig().set("punished_players", punished);
-            }
-            Punishments.getInstance().getConfig().set("punished_reasons." + playerName, reason);
-            Punishments.getInstance().saveConfig();
+            pm.addPunished(playerName);
+            pm.setPunishmentReason(playerName, reason);
             sender.sendMessage("§aШтраф выдан оффлайн-игроку " + playerName + ". Причина: " + reason);
             return true;
         }
